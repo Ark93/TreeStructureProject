@@ -13,15 +13,28 @@ public class Node {
 
     private int nodeID;
     private boolean is_root = Boolean.FALSE;
+    private boolean is_node = Boolean.FALSE;
     private boolean is_leaf = Boolean.FALSE;
     private String message = "";
     private Node leftNode = null;
     private Node rightNode = null;
 
-    public Node(int nodeID) {
-        this.nodeID = nodeID;
+    public Node(int nodeId,String msg, boolean root, boolean node, boolean leaf) {
+        setNodeID(nodeId);
+        setMessage(msg);
+        setIs_root(root);
+        setIs_node(node);
+        setIs_leaf(leaf);
     }
 
+    public Node(int nodeId){
+        setNodeID(nodeId);
+    }
+    
+    public Node(int nodeId,boolean root){
+        setNodeID(nodeId);
+        setIs_root(root);
+    }
     /**
      * @return the nodeID
      */
@@ -104,6 +117,20 @@ public class Node {
      */
     public void setRightNode(Node rightNode) {
         this.rightNode = rightNode;
+    }
+
+    /**
+     * @return the is_node
+     */
+    public boolean isIs_node() {
+        return is_node;
+    }
+
+    /**
+     * @param is_node the is_node to set
+     */
+    public void setIs_node(boolean is_node) {
+        this.is_node = is_node;
     }
 
 }
