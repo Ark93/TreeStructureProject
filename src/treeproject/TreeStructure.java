@@ -5,20 +5,19 @@
  */
 package treeproject;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author sa-al
  */
-public class TreeStructure {
+public class TreeStructure extends JPanel{
     
     private Node rootNode = null;
     private Node currentNode = null;
     private int currentID = 0;
     
     public TreeStructure(){
-        rootNode = new Node(currentID);
-        currentNode = rootNode;
-        currentID +=1;
     }
 
     /**
@@ -47,6 +46,10 @@ public class TreeStructure {
      */
     public void setCurrentNode(Node currentNode) {
         this.currentNode = currentNode;
+        if(currentNode.isIs_root()){
+            rootNode = currentNode;
+        }
+        currentID = this.currentNode.getNodeID()+1;
     }
 
     /**
